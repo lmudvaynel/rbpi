@@ -18,4 +18,5 @@ ActiveAdmin.register Worker do
   end
 
   form partial: 'form'
+  
 end
