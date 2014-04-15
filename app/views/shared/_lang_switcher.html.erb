@@ -1,0 +1,8 @@
+<ul class="lang">
+  <% I18n.available_locales.each do |locale| %>
+    <% locale = locale.to_s %>
+    <li class="lang-all <%= 'lang-active' if I18n.locale.to_s == locale %>">
+      <%= link_to '', params.merge(locale: locale),{:style=>'float:left; width:16px; height:11px;  text-decoration: none !important;background:url(/assets/'+locale.to_s+'.png) left top no-repeat;' }  %>
+    </li>
+  <% end %>
+</ul>

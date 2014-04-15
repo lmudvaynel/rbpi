@@ -1,0 +1,22 @@
+
+<div class="content">
+  <div class="tabcontents" style="height: 1000px;">
+    <div class="tab-control">
+      <% @page.tabs.each_with_index do |tab,i| %>
+        <%= link_to_if(i==0, tab.name, "", :rel => "tab-#{i+1}", :class => "current") { link_to( tab.name, "" , :rel => "tab-#{i+1}")} %>
+      <% end %>
+    </div>
+    <div id="tab">
+      <div class="tab-list">
+        <% @page.tabs.each_with_index do |tab,i| %>
+          <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
+            <div class="supplier">
+              <%= raw tab.content %>
+              <div class="clear"></div>
+            </div>
+          </div>   
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

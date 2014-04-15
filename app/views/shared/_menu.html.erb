@@ -1,0 +1,9 @@
+<div class="navigation pages">
+<% Page.all.each do |page| %>
+<% if @page.slug!=page.slug %>
+  <%= link_to page.name, slug_path(page.slug), :class => "tab tab-link", :title => page.name if page.slug!="index" %>
+  <% else %>
+    <%= link_to page.name, slug_path(page.slug), :class => "tab tab-active", :title => page.name if page.slug!="index" %>
+  <% end %>
+<% end %>
+</div>

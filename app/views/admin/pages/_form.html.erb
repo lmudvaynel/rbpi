@@ -1,0 +1,36 @@
+<% layouts = Dir.entries(Rails.root.join("app", "views", "layouts")).keep_if { |i| i =~ /.html.erb$/ }.each{|i| i.slice! ".html.erb"} %>
+
+<%= semantic_form_for [:admin, resource] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :position %>
+  <% end %>
+
+  <div class="globalize-inputs globalize-content">
+    <%= f.globalize_inputs :translations do |lf| %>
+      <%= lf.inputs do %>
+        <%= lf.input :name, input_html: {rows:1}%>
+        <%= lf.input :content, as: :ckeditor %>
+        <%= lf.input :locale, :as => :hidden %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.inputs "SEO" do %>
+    <%= f.input :slug, required: false %>
+    <%= f.semantic_fields_for :seo do |j| %>
+      <div class="globalize-inputs globalize-seo">
+        <%= j.globalize_inputs :translations do |lf| %>
+          <%= lf.inputs do %>
+            <%= lf.input :title, input_html: {rows:1} %>
+            <%= lf.input :keywords, input_html: {rows:1} %>
+            <%= lf.input :description, input_html: {rows:1} %>
+
+            <%= lf.input :locale, :as => :hidden %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>

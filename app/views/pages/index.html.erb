@@ -1,0 +1,31 @@
+<div class="content" style="width: 995px; height: 480px;">
+
+    <div class="content-left">
+      <%= raw @page.content %>
+    </div>
+    <div class="content-right" style="width: 485px;">
+      
+      <div id="slides">
+        <% Slider.all.each do |image| %>
+          <%= image_tag image.image.url, :style => "width: 485px; height: 344px;", :alt => "" %>
+        <% end %>
+      </div>
+     
+      <script type="text/javascript">
+        $(function() {
+          $('#slides').slidesjs({
+            width: 485,
+            height: 344,
+            navigation: false,
+            pagination: false,
+            play: {
+              active: false,
+              auto: true,
+              interval: 4000,
+              swap: true
+            }
+          });
+        });
+      </script>
+    </div>
+</div>
