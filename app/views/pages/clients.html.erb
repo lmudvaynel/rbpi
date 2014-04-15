@@ -3,7 +3,15 @@
   <div class="tabcontents" style="height: 1000px;">
     <div class="tab-control">
       <% @page.tabs.each_with_index do |tab,i| %>
-        <%= link_to_if(i==0, tab.name, "", :rel => "tab-#{i+1}", :class => "current") { link_to( tab.name, "" , :rel => "tab-#{i+1}")} %>
+        <% if i==0 %>
+          <%= link_to "#", :rel => "tab-#{i+1}", :class => "current" do %>
+            <span class="border_dotted"><%= tab.name %></span>
+          <% end %>
+        <% else %>
+          <%= link_to "#", :rel => "tab-#{i+1}" do %>
+            <span class="border_dotted"><%= tab.name %></span>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
     <div id="tab">

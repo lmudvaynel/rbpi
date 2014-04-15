@@ -1,12 +1,4 @@
-@import "bootstrap";
-@import "bootstrap-responsive";
-@import "compass";
-$short-sprite-dimensions: true;
- 
- /*óáðàëè âñå îòñòóïû*/
 * {padding:0; margin:0; line-height:140%;} 
-
-/*ôîí ïðîïîðöèîíàëüíûé îêíó*/
 
 html,body{background-color:transparent;}
 html{background:transparent url(../images/background.jpg) no-repeat center center fixed;
@@ -103,11 +95,11 @@ img .supplier{text-align: right;}
 .search{margin-top:5px;}
 .search-button{font-size:90%;}
 
-.navigation{float:left; padding-left: 40px; margin-top: 30px;}
+.navigation{padding-left: 40px; margin-top: 30px;}
 .pages{padding-top:5px; padding-bottom:7px;}
 
 .tab{font-size: 150%; padding: 10px 15px 12px 15px; background-image: url("../images/blue_transparent.png"); margin-right: 20px;}
-.tab-active{color:#000; padding-bottom: 40px; background-image: url("../images/white_transparent.png");}
+.tab-active{ text-decoration: none; color:#000; padding-bottom: 40px; background-image: url("../images/white_transparent.png");}
 .tab-active-link {color:#000; text-decoration:underline; background-image: url("../images/white_transparent.png");}
 .tab-link {color:#fff;text-decoration:underline;}
 .tab-active-link:hover,.tab-link:hover{color:#fff; background: #192841;}
@@ -250,7 +242,7 @@ cursor: hand;
 
 .no-scroll {overflow:hidden;-webkit-overflow-scrolling: touch;}
 .wrapper {max-width:980px; margin:0 auto; }
-.wrapper-modal {padding:0 330px 0 0; @include box-sizing(border-box); position:relative; z-index:10; }
+.wrapper-modal {padding:0 330px 0 0; position:relative; z-index:10; }
 
 .header {}
 .header .span12 {padding:40px 0px 40px 0px; position: relative;}
@@ -260,7 +252,8 @@ cursor: hand;
 .lang-ru,.lang-en {float:left; margin:5px 0 0 5px;  }
 .lang-a {float:left; width:16px; height:11px; background:url(flags.png) left top no-repeat; text-decoration: none !important;}
 .lang-en .lang-a {background-position: left bottom;}
-.lang-all {padding:4px 5px 6px; background:#ddd; float:left; margin:5px 0 0 5px;  @include border-radius(0 0 6px 6px);}
+.lang-all {padding:4px 5px 6px; background:#ddd; float:left; margin:5px 0 0 5px; border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;}
 .lang-active {background:#C7D647;}
 
 .btop-container-height {overflow:hidden;}
@@ -268,7 +261,7 @@ cursor: hand;
 .content {}
 .content h1 {font-size:26px;}
 
-.fade { @include transition(opacity 0.5s linear); opacity:0;}
+.fade { opacity:0;}
 
 .tab-list {}
 .tab-list .tab-item { display:none}
@@ -281,7 +274,10 @@ cursor: hand;
 .lineheight-loc { line-height: 23px}
 
 .tab-control { text-align:center;}
-.tab-control a {color: #000; float: left; font-size: 130%; margin: 20px 20px 0 0; padding: 5px 15px 5px 15px;}
-.tab-control a.current { float: left; font-size: 130%; margin: 20px 20px 0 0; padding: 5px 15px 5px 15px; background-color: #78c57c;}
-.tab-control a:hover { text-decoration: none; color:#ff6666;}
+.tab-control a {text-decoration: none; color: #000; float: left; font-size: 130%; margin: 20px 20px 0 0; padding: 5px 15px 5px 15px;}
+.tab-control a.current {text-decoration: none; float: left; font-size: 130%; margin: 20px 20px 0 0; padding: 5px 15px 5px 15px; background-color: #78c57c;}
+.tab-control a:hover { text-decoration: none; color:#ff0000;}
 .tab-control a.current:hover {color: #000; text-decoration: none;}
+
+a .border_dotted {border-bottom: 1px dotted #666;}
+.current .border_dotted {border-bottom: 0px dotted #666;}
