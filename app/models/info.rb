@@ -4,4 +4,5 @@ class Info < ActiveRecord::Base
   translates :content, :name
   accepts_nested_attributes_for :translations
   belongs_to :page
+  acts_as_list
 end
