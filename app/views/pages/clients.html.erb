@@ -2,7 +2,7 @@
 <div class="content">
   <div class="tabcontents" style="height: 1000px;">
     <div class="tab-control">
-      <% @page.tabs.each_with_index do |tab,i| %>
+      <% @page.infos.each_with_index do |tab,i| %>
         <% if i==0 %>
           <%= link_to "#", :rel => "tab-#{i+1}", :class => "current" do %>
             <span class="border_dotted"><%= tab.name %></span>
@@ -16,7 +16,7 @@
     </div>
     <div id="tab">
       <div class="tab-list">
-        <% @page.tabs.each_with_index do |tab,i| %>
+        <% @page.infos.each_with_index do |tab,i| %>
           <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
             <div class="supplier">
               <%= raw tab.content %>
