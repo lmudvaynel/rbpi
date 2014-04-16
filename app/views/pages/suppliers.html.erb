@@ -1,0 +1,36 @@
+<div class="content">
+  <div class="tabcontents" style="height: 1000px;">
+    <div class="tab-control">
+      <% @page.infos.each_with_index do |tab,i| %>
+        <% if i==0 %>
+          <%= link_to "#", :rel => "tab-#{i+1}", :class => "current" do %>
+            <span class="border_dotted"><%= tab.name %></span>
+          <% end %>
+        <% else %>
+          <%= link_to "#", :rel => "tab-#{i+1}" do %>
+            <span class="border_dotted"><%= tab.name %></span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="tab">
+      <div class="tab-list">
+        <% @page.infos.each_with_index do |tab,i| %>
+          <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
+            <div class="supplier">
+              <% if tab.name=="Наши партнеры" %> 
+                <div class="content-left" style="background-color:#fff; width: 940px;">
+                  <% Partner.all.each do |partner| %>
+                    <%=link_to (image_tag(partner.image.url)),(slug_path(partner.link)), class: "suppliers-link"%>
+                    <% end %>
+                  </a>
+                </div>
+              <% end %>
+              <div class="clear"></div>
+            </div>
+          </div>   
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
