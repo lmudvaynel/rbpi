@@ -4,5 +4,6 @@ class Info < ActiveRecord::Base
   translates :content, :name
   accepts_nested_attributes_for :translations
   belongs_to :page
+  default_scope order: 'infos.position ASC'
   acts_as_list
 end
