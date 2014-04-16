@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="tabcontents" style="height: 1000px;">
+  <div class="tabcontents">
     <div class="tab-control">
       <% @page.infos.each_with_index do |tab,i| %>
         <% if i==0 %>
@@ -35,6 +35,29 @@
                 <div class="clear" style="height:50px;"></div> 
               <% end %>
             </div>
+            <% elsif tab.name=="Акционерам" %>
+              <div class="nodecoration tab-active-member">
+                <span class="pseudo-active-category">
+                Вход для акционеров, пожалуйста введите пароль
+                </span>
+              </div>
+              <div class="supplier">
+                <div class="content-left">
+                <form method="post" action="http://www.rbpi.no/shareholder">
+                  <input style="font-size:150%; margin-bottom: 25px;" type="password" size="20" name="user_pass">
+                  <input style="width: 100px; height: 35px;" type="submit" name="go_auth" value="Enter">
+                </form>
+                <div class="content-left">
+                  <%= image_tag Worker.first.photo.url, :style => "width: 155px;" %> 
+                </div>
+                <div class="content-left">
+                  <h2><%= Worker.first.fio %></h2>
+                  <p>E-mail: <%= link_to Worker.first.worker_contacts.first.email, "mailto:"+Worker.first.worker_contacts.first.email, class: "simple" %><br/>
+                           Телефон: <%= Worker.first.worker_contacts.first.phone %></p> 
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
             <% else %>
               <div class="content-left">
                 <%= raw tab.content %>

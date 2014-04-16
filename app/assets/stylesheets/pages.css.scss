@@ -15,7 +15,7 @@ html, body {height: 100%; min-width: 1200px;}
 .footer{position: relative; width: 100%; height: 120px; margin-top:-120px; background:url(../images/black_transparent.png)} 
 .footer:after{content: ''; display: block; clear: both;}
 
-div.tabcontents {overflow: hidden; border: 0;}
+div.tabcontents {overflow: hidden; border: 0; padding: 0px 0px 100px;}
 div.tabs-content {overflow: visible;}
 
 * {font-size: 100%; font-family: Arial, Helvetica, sans-serif}
@@ -72,7 +72,7 @@ a.red:hover{color: #ff0000;}
 
 .tab-category{float: left; font-size: 130%; margin: 20px 20px 0 0; padding: 5px 15px 5px 15px;}
 .tab-active-category{float: left; font-size: 130%; margin: 20px 20px 0 0; padding: 5px 15px 5px 15px; background-color: #78c57c;}
-
+.tab-active-member{font-size: 130%; margin: 90px 20px 0 0; padding: 5px 15px 5px 15px; background-color: #78c57c; width: 512px; }
 .suppliers-active-category{background-color: #78c57c; float: left; font-size: 130%; margin: 20px 50px 0 0; padding: 5px 15px 5px 15px;}
 .supplier{clear: left; margin: 0 40px 0 0; padding: 30px 40px 0 15px;}
 img .supplier{text-align: right;}
