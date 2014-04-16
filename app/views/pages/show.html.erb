@@ -18,7 +18,9 @@
         <% @page.infos.each_with_index do |tab,i| %>
           <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
             <div class="supplier">
-              <%= raw tab.content %>
+              <div class="content-left">
+                <%= raw tab.content %>
+              </div>
               <div class="clear"></div>
             </div>
           </div>   
