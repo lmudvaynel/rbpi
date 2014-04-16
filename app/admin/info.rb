@@ -1,6 +1,6 @@
 # Encoding: utf-8
-ActiveAdmin.register Tab do
-  menu :priority => 0  
+ActiveAdmin.register Info do
+  menu :priority => 3
   config.batch_actions = false
   config.sort_order = 'position_asc'
 

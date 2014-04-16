@@ -1,7 +1,7 @@
 # encoding: utf-8
 ActiveAdmin.register Slider do
 
- menu :priority => 3
+ menu :priority => 2
  config.batch_actions = false
  config.sort_order = 'position_asc'
  sortable

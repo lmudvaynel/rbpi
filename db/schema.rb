@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140415112319) do
+ActiveRecord::Schema.define(:version => 20140416075055) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -45,6 +45,25 @@ ActiveRecord::Schema.define(:version => 20140415112319) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "info_translations", :force => true do |t|
+    t.integer  "info_id",    :null => false
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "content"
+    t.text     "name"
+  end
+
+  add_index "info_translations", ["info_id"], :name => "index_info_translations_on_info_id"
+  add_index "info_translations", ["locale"], :name => "index_info_translations_on_locale"
+
+  create_table "infos", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "page_id"
+    t.integer  "position"
+  end
 
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id",    :null => false
@@ -97,29 +116,13 @@ ActiveRecord::Schema.define(:version => 20140415112319) do
     t.datetime "image_updated_at"
   end
 
-  create_table "tab_translations", :force => true do |t|
-    t.integer  "tab_id",     :null => false
-    t.string   "locale",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.text     "content"
-    t.text     "name"
-  end
-
-  add_index "tab_translations", ["locale"], :name => "index_tab_translations_on_locale"
-  add_index "tab_translations", ["tab_id"], :name => "index_tab_translations_on_tab_id"
-
-  create_table "tabs", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "page_id"
-    t.integer  "position"
-  end
-
   create_table "worker_contacts", :force => true do |t|
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "worker_id"
   end
 
   create_table "worker_translations", :force => true do |t|

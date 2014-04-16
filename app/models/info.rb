@@ -1,4 +1,4 @@
-class Tab < ActiveRecord::Base
+class Info < ActiveRecord::Base
   attr_accessible :translations_attributes, :translations, :page_id
 
   translates :content, :name

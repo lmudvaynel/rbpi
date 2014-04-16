@@ -5,7 +5,7 @@ class Page < ActiveRecord::Base
 
   translates :content, :name
   belongs_to :seo
-  has_many :tabs
+  has_many :infos
   accepts_nested_attributes_for :seo, :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :translations
 

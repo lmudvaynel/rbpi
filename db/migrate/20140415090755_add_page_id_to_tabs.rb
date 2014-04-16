@@ -1,6 +1,6 @@
 class AddPageIdToTabs < ActiveRecord::Migration
   def change
-    add_column :tabs, :page_id, :integer
-    add_column :tabs, :position, :integer
+    add_column :infos, :page_id, :integer
+    add_column :infos, :position, :integer
   end
 end
