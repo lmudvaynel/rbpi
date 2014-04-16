@@ -1,0 +1,48 @@
+<div class="content">
+  <div class="tabcontents" style="height: 1000px;">
+    <div class="tab-control">
+      <% @page.infos.each_with_index do |tab,i| %>
+        <% if i==0 %>
+          <%= link_to "#", :rel => "tab-#{i+1}", :class => "current" do %>
+            <span class="border_dotted"><%= tab.name %></span>
+          <% end %>
+        <% else %>
+          <%= link_to "#", :rel => "tab-#{i+1}" do %>
+            <span class="border_dotted"><%= tab.name %></span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="tab">
+      <div class="tab-list">
+        <% @page.infos.each_with_index do |tab,i| %>
+          <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
+            <% if tab.name=="Команда" %> 
+            <div class="supplier">
+              <% Worker.all.each do |worker| %>
+                <div class="content-left">
+                  <%= image_tag worker.photo.url, :style => "width: 135px;" %> 
+                </div>
+                <div class="content-left" style="width: 400px;">
+                  <h2>Г-н <%= worker.fio %></h2>
+                  <b><i><%= worker.post %></i></b><br/> 
+                    <%= worker.bio %>
+                </div>
+                <% worker.worker_contacts.all.each do |contact| %>
+                  <p>E-mail: <%= link_to contact.email, "mailto:"+contact.email, class: "simple" %><br/>
+                    Телефон: <%= contact.phone %></p> 
+                <% end %>
+                <div class="clear" style="height:50px;"></div> 
+              <% end %>
+            </div>
+            <% else %>
+              <div class="content-left">
+                <%= raw tab.content %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
