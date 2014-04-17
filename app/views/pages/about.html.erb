@@ -30,7 +30,7 @@
                 </div>
                 <% worker.worker_contacts.all.each do |contact| %>
                   <p>E-mail: <%= link_to contact.email, "mailto:"+contact.email, class: "simple" %><br/>
-                    Телефон: <%= contact.phone %></p> 
+                    <%=t "footer.phone"%>: <%= contact.phone %></p> 
                 <% end %>
                 <div class="clear" style="height:50px;"></div> 
               <% end %>
@@ -58,6 +58,8 @@
                 </div>
                 <div class="clear"></div>
               </div>
+            <% elsif tab.name=="Группа RBPI" %> 
+              <%= raw tab.content %>
             <% else %>
               <div class="content-left">
                 <%= raw tab.content %>

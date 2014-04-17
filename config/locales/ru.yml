@@ -1,6 +1,7 @@
 ru:
   footer:
     text: "Компания"
+    phone: "Телефон"
   mailer:
     email: "Введите ваш e-mail"
     message: "Введите ваше сообщение"
