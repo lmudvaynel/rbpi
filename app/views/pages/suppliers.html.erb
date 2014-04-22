@@ -18,7 +18,7 @@
         <% @page.infos.each_with_index do |tab,i| %>
           <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
             <div class="supplier">
-              <% if tab.name=="Наши партнеры" %> 
+              <% if tab.name=="Наши партнеры"||tab.name=="Partners" %> 
                 <div class="content-left" style="background-color:#fff; width: 940px;">
                   <% Partner.all.each do |partner| %>
                     <%=link_to (image_tag(partner.image.url)),partner.link, class: "suppliers-link"%>
