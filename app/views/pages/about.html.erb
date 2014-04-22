@@ -17,7 +17,7 @@
       <div class="tab-list">
         <% @page.infos.each_with_index do |tab,i| %>
           <div class="tab-item <%="current" if i==0%>" id="tab-<%=i+1%>">
-            <% if tab.name=="Команда" %> 
+            <% if tab.name=="Команда"||tab.name=="Team" %> 
             <div class="supplier">
               <% Worker.all.each do |worker| %>
                 <div class="content-left">
@@ -35,7 +35,7 @@
                 <div class="clear" style="height:50px;"></div> 
               <% end %>
             </div>
-            <% elsif tab.name=="Акционерам" %>
+            <% elsif tab.name=="Акционерам"||tab.name=="Shareholders" %>
               <div class="nodecoration tab-active-member">
                 <span class="pseudo-active-category">
                 Вход для акционеров, пожалуйста введите пароль
@@ -58,7 +58,7 @@
                 </div>
                 <div class="clear"></div>
               </div>
-            <% elsif tab.name=="Группа RBPI" %> 
+            <% elsif tab.name=="Группа RBPI"||tab.name=="RBPI Group"%> 
               <%= raw tab.content %>
             <% else %>
               <div class="content-left">
